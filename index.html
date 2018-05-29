@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Struct JS</title>
+
+  <link rel="stylesheet" href="/public/codemirror.css">
+  <link rel="stylesheet" href="/public/theme.css">
+  <style>
+    .CodeMirror {
+      height: 100vh;
+    }
+
+    #hint,
+    .text {
+      font: normal 13px sans-serif;
+      margin: 0 0 16px;
+    }
+
+    #hint div {
+      margin: 4px 0;
+    }
+
+    #hint div span {
+      margin: 0 0 0 8px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="text">
+    <p>
+      <strong>explainer</strong>
+    </p>
+    <p>This is an experiemnt to implement structured (
+      <a href="http://danmidwood.com/content/2014/11/21/animated-paredit.html">Paredit</a>-like) code editing and navigation for JavaScript and other languages where source code is represented as
+      plain text (no explicit structure). Source code of a program is inherently a tree of its syntax tokens, but most programming
+      languages represent its syntax tree as plain text. Instead sometimes it is useful to operate on syntax nodes, instead
+      of characters and words.</p>
+  </div>
+
+  <div class="text">
+    <p>
+      <strong>give it a try</strong>
+    </p>
+    <p>The purpose of this demo is to gather feedback for future development and editors integration. Please give it a try and
+      report any issues or suggestion to
+      <a href="https://github.com/roman01la/structed/issues">GitHub repository</a>.
+    </p>
+    <p>Paste some code into the editor below and try to refactor it as usual, but also use provided editor commands where you
+      would usually go with manual selection or navigation (mouse, arrow keys + alt).</p>
+  </div>
+
+  <div id="hint" class="text">
+    <p>
+      <strong>commands</strong>
+    </p>
+  </div>
+
+  <div id="root"></div>
+
+  <script src="/public/codemirror.js"></script>
+  <script src="/public/javascript.js"></script>
+  <script src="/public/active-line.js"></script>
+  <script src="/public/matchbrackets.js"></script>
+  <script src="/public/closebrackets.js"></script>
+
+  <script src="/dist/bundle.js"></script>
+
+  <script src="/public/main.js"></script>
+
+</body>
+
+</html>

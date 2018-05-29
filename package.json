@@ -1,0 +1,22 @@
+{
+  "name": "structed",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "webpack --mode=development --watch",
+    "build": "webpack --mode=production"
+  },
+  "keywords": [],
+  "author": "Roman Liutikov",
+  "license": "MIT",
+  "dependencies": {
+    "babel-generator": "^6.26.1",
+    "babel-traverse": "^6.26.0",
+    "babylon": "^6.18.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-core": "^0.6.9"
+  }
+}

@@ -1,6 +1,5 @@
 const { parse } = require("babylon");
 const traverse = require("babel-traverse").default;
-const generate = require("babel-generator").default;
 
 const parseCode = ({ text }) =>
   parse(text, {
@@ -181,43 +180,6 @@ const toTopLevel = path => path.findParent(p => p.parentPath.isProgram());
 
 const getFile = p => p.findParent(p => p.isProgram()).parent;
 
-const slurpJSX = path => {
-  let target = path.getNextSibling();
-
-  while (!target.isJSXElement()) {
-    target = target.getNextSibling();
-  }
-
-  const targetNode = target.node;
-
-  target.remove();
-
-  path.node.children.push(targetNode);
-
-  const { code } = generate(path.node);
-  const loc = {
-    start: path.node.loc.start,
-    end: targetNode.loc.end
-  };
-
-  return [code, loc];
-};
-
-const barfJSX = path => {
-  const node = path.node.children.pop();
-  const idx = path.parent.children.indexOf(path.node);
-
-  path.parent.children.splice(idx + 1, 0, node);
-
-  const { code } = generate(path.parent);
-  const loc = {
-    start: path.node.loc.start,
-    end: targetNode.loc.end
-  };
-
-  return [code];
-};
-
 module.exports = {
   parse: parseCode,
   expandSelectionAt,
@@ -226,7 +188,5 @@ module.exports = {
   prevNodeAt,
   nextInnerNodeAt,
   nextOuterNodeAt,
-  toTopLevel,
-  slurpJSX,
-  barfJSX
+  toTopLevel
 };

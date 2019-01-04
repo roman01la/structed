@@ -1,12 +1,15 @@
 {
   "name": "structed",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Structured editing for JavaScript",
+  "main": "src/index.js",
   "scripts": {
     "start": "webpack --mode=development --watch",
     "build": "webpack --mode=production"
   },
-  "keywords": [],
+  "keywords": [
+    "structured editing"
+  ],
   "author": "Roman Liutikov",
   "license": "MIT",
   "dependencies": {

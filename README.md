@@ -1,9 +1,20 @@
 # Structured editing for JavaScript
 
+- Core library `src/index.js`
+- Example `index.html`
+
 ## Features
 
-* Hierarchical navigation (expand/shrink selection or cursor position)
-* Manipulate nodes instead of plain text (copy/cut)
+- Hierarchical navigation (expand/shrink selection or cursor position)
+- Manipulate nodes instead of plain text (copy/cut)
+
+## Editor plugins
+
+- [VS Code](https://github.com/roman01la/vscode-structed)
+
+## Editor integration guide
+
+Structed's core library is a set of functions that walk AST and return location data for selection or cursor position to be set. It can work with any JS-based editor. See how it is used in [VS Code](https://github.com/roman01la/vscode-structed/blob/master/src/index.js) extension.
 
 ## How it works
 

@@ -18,8 +18,8 @@
     "babylon": "^6.18.0"
   },
   "devDependencies": {
-    "webpack": "^4.9.1",
-    "webpack-cli": "^2.1.4",
-    "webpack-core": "^0.6.9"
+    "webpack": "4.9.1",
+    "webpack-cli": "2.1.4",
+    "webpack-core": "0.6.9"
   }
 }

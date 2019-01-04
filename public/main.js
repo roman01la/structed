@@ -90,8 +90,6 @@ const structKeys = {
   prevNodeAt: [keys.ctrl, keys.alt, keys.z],
   toTopLevel: [keys.ctrl, keys.alt, keys.p],
   cutNodeAt: [keys.ctrl, keys.alt, keys.k]
-  // slurpJSX: [keys.ctrl, keys.alt, keys.n],
-  // barfJSX: [keys.ctrl, keys.alt, keys.m]
 };
 
 const structKeysHelp = {
@@ -105,15 +103,20 @@ const structKeysHelp = {
 };
 
 Object.entries(structKeys).forEach(([name, keys]) => {
-  const khint = document.createElement("div");
-  const kkeys = document.createElement("span");
+  const khint = document.createElement("tr");
+  let cmd = document.createElement("td");
+  let desc = document.createElement("td");
+  const kkeys = document.createElement("td");
 
+  cmd.textContent = name;
+  desc.textContent = structKeysHelp[name];
   kkeys.textContent = keys.map(k => kkode2key[k]).join("-");
 
-  khint.textContent = `${name} (${structKeysHelp[name]}) :`;
+  khint.appendChild(cmd);
+  khint.appendChild(desc);
   khint.appendChild(kkeys);
 
-  window.hint.appendChild(khint);
+  window.hint.querySelector("tbody").appendChild(khint);
 });
 
 const onStructKey = (keys, handler) => {
@@ -320,23 +323,3 @@ onStructKey(structKeys.cutNodeAt, () => {
     cm.setCursor(toCursor(path.parent.loc.start));
   }
 });
-
-// onStructKey(structKeys.slurpJSX, () => {
-//   if (currentNode) {
-//     const [code, loc] = struct.slurpJSX(currentPath);
-//     const selection = toSelection(loc);
-
-//     cm.replaceRange(code, ...selection);
-//     cm.setCursor(selection[0]);
-//   }
-// });
-
-// onStructKey(structKeys.barfJSX, () => {
-//   if (currentNode) {
-//     const [code, loc] = struct.barfJSX(currentPath);
-//     // const selection = toSelection(loc);
-
-//     cm.setValue(code);
-//     // cm.setCursor(selection[0]);
-//   }
-// });

@@ -87,7 +87,9 @@ const nodesDir = {
   FunctionDeclaration: ["id", "params", "body"],
   ClassDeclaration: ["id", "superClass", "body"],
   ForStatement: ["init", "test", "update", "body"],
-  ConditionalExpression: ["test", "consequent", "alternate"]
+  ConditionalExpression: ["test", "consequent", "alternate"],
+  IfStatement: ["test", "consequent", "alternate"],
+  ObjectMethod: ["key", "params", "body"]
 };
 
 const getNextSiblingChild = path => {

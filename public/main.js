@@ -156,7 +156,7 @@ const getAST = (() => {
   };
 })();
 
-fetch("/public/test.js")
+fetch("/src/index.js")
   .then(res => res.text())
   .then(text => {
     cm.setValue(text);
